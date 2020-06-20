@@ -1,0 +1,48 @@
+<div class="container">
+
+    {% for materiel in materiels %}
+
+        <div id="{{ materiel.id }}" tabindex="-1" role="dialog" aria-labelledby="show" class="modal fade">
+            <div role="document" class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h3 id="{{ materiel.id }}" class="modal-title">
+                            Infos du produit</h3>
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+                                    aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped table-bordered">
+                            <tbody>
+                            <tr>
+                                <th>Nom</th>
+                                <td>{{ materiel.nom }}</td>
+                            </tr>
+                            <tr>
+                                <th>Prix</th>
+                                <td>{{ materiel.prix }}</td>
+                            </tr>
+                            <tr>
+                                <th>Quantité</th>
+                                <td>{{ materiel.quantite }}</td>
+                            </tr>
+                            <tr>
+                                <th>Date de création</th>
+                                <td>{{ materiel.CreatedAt ? materiel.CreatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="text-center">
+                        <a class="btn btn-dark align-center" href="{{ path('materiel_edit', {'id': materiel.id}) }}">Modifier le produit</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    {% endfor %}
+
+</div>
