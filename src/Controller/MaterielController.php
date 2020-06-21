@@ -106,17 +106,22 @@ class MaterielController extends AbstractController
             );
         }
 
+        // get the quantity in Materiel entity
         $quantity = $materiel->getQuantite();
+
+        // if the product's quantity is bigger than 0 decrease -1
         if ($quantity > 0) {
             $quantity = $quantity - 1;
             $materiel = $materiel->setQuantite($quantity);
             $entityManager->flush();
         } else {
+            //alert when the product's quantity is already at 0
             throw $this->createNotFoundException(
                 'Impossible de Décrémenter'
             );
         }
 
+//        If quantity is equal or lower than 0, send an email to the admin
         if ($quantity <= 0) {
             $message = (new \Swift_Message('Module_Materiel'))
                 ->setFrom('module_materiel@email.com')
@@ -130,7 +135,8 @@ class MaterielController extends AbstractController
                 );
             $mailer->send($message);
 
-            $this->addFlash("success", "Un email d'information à été envoyé.");
+            // show a successful alert message after the email was sent
+            $this->addFlash("success", "Un email d'information à été envoyé à l'admin.");
         }
 
         return $this->redirectToRoute('materiel_index');

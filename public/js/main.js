@@ -1,5 +1,5 @@
 $(document).ready(function() {
-   let table = $('#data_table').DataTable( {
+   $('#data_table').DataTable( {
         'columnDefs' : [
             {
                 'searchable'    : false,
