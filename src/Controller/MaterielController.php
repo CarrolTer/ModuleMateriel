@@ -102,7 +102,7 @@ class MaterielController extends AbstractController
 
         if (!$materiel) {
             throw $this->createNotFoundException(
-                'No product found for id ' . $id
+                'Aucun produit avec cet id ' . $id
             );
         }
 
@@ -119,7 +119,7 @@ class MaterielController extends AbstractController
 
         if ($quantity <= 0) {
             $message = (new \Swift_Message('Module_Materiel'))
-                ->setFrom('module_materiel@mail.com')
+                ->setFrom('module_materiel@email.com')
                 ->setTo('d4fab93793-631efb@inbox.mailtrap.io')
                 ->setBody(
                     $this->renderView(
