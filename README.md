@@ -29,3 +29,7 @@ php bin/console doctrine:fixtures:load
 php bin/console d:f:l
 
 ```
+
+## A savoir
+
+Utilisation de [mailtrap](https://mailtrap.io) afin d'informer l'admin qu'un produit a sa quantité à 0.
