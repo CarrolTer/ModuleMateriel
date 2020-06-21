@@ -89,4 +89,14 @@ class Materiel
 
         return $this;
     }
+
+    /**
+     * toString
+     * @return string
+     */
+    public function __ToString()
+    {
+        return (string)$this->getId();
+
+    }
 }
