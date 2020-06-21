@@ -17,7 +17,6 @@
                 <table id="data_table" class="table table-bordered " style="width:100%">
                     <thead class="thead-dark">
                     <tr class="text-center">
-                        <th></th>
                         <th>Nom</th>
                         <th>Prix</th>
                         <th>Quantité</th>
@@ -29,9 +28,7 @@
                     {% for materiel in materiels %}
                         {% if materiel.quantite > 0 %}
                         <tr class="text-center">
-                            <td>
-                                <a class="btn btn-dark btn-sm" href="{{ path('materiel_decrease', {'id': materiel.id}) }}">Décrémenter</a>
-                            </td>
+
                             <td>{{ materiel.nom }}</td>
                             <td>{{ materiel.prix }}€</td>
                             <td>{{ materiel.quantite }}</td>
@@ -39,7 +36,7 @@
                             <td>
 
                                 <a class="btn btn-outline-primary " href="#" data-toggle="modal" data-target="#{{ materiel.id }}">Voir</a>
-{#                                <a href="{{ path('materiel_edit', {'id': materiel.id}) }}">Editer</a>#}
+                            <a class="btn btn-outline-dark" href="{{ path('materiel_decrease', {'id': materiel.id}) }}">Décrémenter</a>
                             </td>
                         </tr>
                         {% endif %}
